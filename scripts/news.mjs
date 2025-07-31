@@ -41,7 +41,7 @@ async function getNews() {
     if (!cachedTime || (Date.now() - cachedTime > CACHE_EXPIRY)) {
         try {
             const apiKey = "ce88a991592abdb206f29987c8196719";
-            const url = `http://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=1000`;
+            const url = `https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=1000`;
 
             const response = await fetch(url);
             if (!response.ok) {
