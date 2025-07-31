@@ -39,30 +39,31 @@ async function getNews() {
 
     // Fetch new news only if cache is missing or expired
     if (!cachedTime || (Date.now() - cachedTime > CACHE_EXPIRY)) {
-        try {
-            const apiKey = "ce88a991592abdb206f29987c8196719";
-            const proxyUrl = "https://api.allorigins.win/get?url=";
-            const targetUrl = encodeURIComponent(`http://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=1000`);
-            const url = proxyUrl + targetUrl;
+      try {
+          const apiKey = "ce88a991592abdb206f29987c8196719";
+          const proxyUrl = "https://api.allorigins.win/get?url=";
+          const targetUrl = encodeURIComponent(`https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=1000`);
+          const url = proxyUrl + targetUrl;
 
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status} ${response.statusText}`);
-            }
+          const response = await fetch(url);
+          if (!response.ok) {
+              throw new Error(`Error: ${response.status} ${response.statusText}`);
+           }
 
-            const data = await response.json();
-            console.log("Fetched fresh news:", data);
+          const proxyData = await response.json();
+          const data = JSON.parse(proxyData.contents); // ✅ unwrap Mediastack data
+          console.log("Fetched fresh news:", data);
 
-            // Save data + timestamp
-            localStorage.setItem("newsCache", JSON.stringify(data));
-            localStorage.setItem("newsCacheTime", Date.now());
+          // Save data + timestamp
+          localStorage.setItem("newsCache", JSON.stringify(data));
+          localStorage.setItem("newsCacheTime", Date.now());
 
-            renderNews(data);
-            display.textContent = "Showing fresh news (updated just now)";
+          renderNews(data);
+          display.textContent = "Showing fresh news (updated just now)";
         } catch (error) {
-            console.error("Failed to fetch news:", error);
-            if (!cached) {
-                newsContainer.innerHTML = `<p>⚠️ Unable to load news. Please check back later.</p>`;
+           console.error("Failed to fetch news:", error);
+           if (!cached) {
+              newsContainer.innerHTML = `<p>⚠️ Unable to load news. Please check back later.</p>`;
             }
         }
     }
