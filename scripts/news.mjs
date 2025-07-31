@@ -40,9 +40,9 @@ async function getNews() {
     // Fetch new news only if cache is missing or expired
     if (!cachedTime || (Date.now() - cachedTime > CACHE_EXPIRY)) {
         try {
+            const apiKey = "ce88a991592abdb206f29987c8196719";
             const proxyUrl = "https://api.allorigins.win/get?url=";
             const targetUrl = encodeURIComponent(`http://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=1000`);
-            const apiKey = "ce88a991592abdb206f29987c8196719";
             const url = proxyUrl + targetUrl;
 
             const response = await fetch(url);
