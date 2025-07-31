@@ -1,0 +1,235 @@
+:root{
+    --text-Color: white;
+    --color1: black;
+    --color2: gray;
+    --color3: gainsboro;
+}
+
+*{
+    font-family: "Roboto","Libertinus Serif", sans-serif;
+    margin: 0;
+}
+
+.head {
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 0 10px;
+    background: var(--text-Color);
+    padding-bottom: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    position: sticky;         /* Fix it to the top */
+    top: 0;                  /* Stick at the very top */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Keep it above other content */
+}
+
+.head-text {
+    display: flex;
+    flex-direction: column;
+    & h1{
+        margin-top: 1.5rem;
+        font-size: 1.5rem;
+    }
+    & span {
+        font-size: .9rem;
+    }
+}
+
+.head img {
+    border-radius: 1rem 50px;
+    box-shadow: 0 0 6px var(--color2);
+    padding: .2rem;
+}
+
+#hamburger {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    &::before{
+        font-size: 3rem;
+        content: "=";
+    }
+    &.open::before{
+        font-size: 2.8rem;
+        content: "x";
+    }
+}
+
+.brand {
+    display: flex;
+    gap: .5rem;
+}
+
+.title {
+    margin-left: 1rem;
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
+}
+
+#navigation {
+    background-color: var(--color3);
+    margin: .5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-out;
+    & ul {
+        overflow: hidden;
+        li {
+            list-style: none;
+            margin: .6rem;
+            a {
+                text-decoration: none;
+                color: var(--color1);
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-thickness: 3px; /* make underline thicker */
+                    text-underline-offset: 4px;    /* push it a bit away from text */
+                }
+            }
+        }
+    }
+    &.open{
+        max-height: 400px;
+    }
+}
+
+footer {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    box-shadow: 0 0 10px;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: .6rem;
+}
+
+#news-container {
+    padding: .5rem;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px;
+    margin: .5rem;
+    margin-bottom: 1rem;
+}
+
+.news-card img{
+    width: 100%;
+}
+
+.news-card {
+    text-align: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid;
+    padding-bottom: .5rem;
+}
+
+.news-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.news-card h3 {
+    font-size: 1rem;
+    margin-bottom: .4rem;
+    & a {
+        text-decoration: none;
+    }
+}
+
+.news-card p {
+    margin-bottom: .3rem;
+}
+
+#status {
+    text-align: center;
+    color: red;
+    font-size: .8rem;
+    font-style: italic;
+}
+
+#fix {
+    margin: 1rem;
+    text-align: center;
+}
+
+.about-us {
+    position: relative; /* make this a positioning context */
+    width: 100%;        /* make it responsive */
+}
+
+.about-us img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: .5rem;
+}
+
+.about-us p {
+    position: absolute;
+    top: 20%;             /* vertically center */
+    left: 3%; 
+    color: white;         /* text color for contrast */
+    font-size: .9rem;
+    font-weight: bold;
+    background: rgba(0,0,0,0.1); /* semi-transparent background */
+    padding: 1rem;
+    border-radius: .3rem;
+    text-align: center;
+    width: 50%;           /* keep it readable */
+}
+
+.ahead {
+    padding: .5rem;
+    text-align: center;
+}
+
+.address h3{
+    text-align: center;
+    font-size: 1rem;
+}
+
+.map-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contact {
+    text-align: center;
+    margin-bottom: 1rem;
+    & p {
+        color: blue;
+        & strong {
+            color: var(--color1);
+        }
+    }
+}
+
+#last-paragraph {
+    font-size: .8rem;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+

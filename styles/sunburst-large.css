@@ -1,0 +1,72 @@
+@media screen and (min-width: 500px) {
+    .head {
+        justify-content: flex-start;
+        padding-left: 1.5rem;
+        padding-top: .3rem;
+    }
+
+    #hamburger{
+        display: none;
+    }
+
+    #navigation{
+        overflow: visible;
+        max-height: 200px;
+        & ul {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+    }
+
+    #navigation ul li a {
+        font-weight: 600;
+    }
+
+    .footer {
+        gap: 1.5rem;
+    }
+
+    #news-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        box-shadow: none;
+        width: 900px;
+        margin: 1rem auto;
+    }
+
+    .news-card img {
+        height: 250px;
+    }
+
+    .title {
+        margin-left: 5rem;
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .about-us {
+        width: 70%;
+        margin: .1rem auto;
+    }
+
+    .address h3 {
+        margin: 1rem;
+    }
+
+    .info {
+        width: 70%;
+        margin: .1rem auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 1rem;
+    }
+
+    .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* push content to bottom */
+    padding: 1rem; /* optional: for spacing inside */
+    }
+}
