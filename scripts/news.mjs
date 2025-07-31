@@ -4,21 +4,29 @@ loadHeaderFooter();
 
 const newsContainer = document.getElementById("news-container");
 
-function renderNews(data){
+function renderNews(data) {
     newsContainer.innerHTML = ""; // clear before adding new
+
+    // ✅ Handle API error responses
+    if (!data || !data.data || !Array.isArray(data.data)) {
+        newsContainer.innerHTML = `<p>⚠️ No news available at the moment. Please check back later.</p>`;
+        console.error("Invalid API response:", data);
+        return;
+    }
+
     data.data.forEach(article => {
-        if(!article.image || !article.author){
-            return; // skip this article if image OR author is null
+        if (!article.image || !article.author) {
+            return; // skip if image OR author is missing
         }
+
         const card = document.createElement("div");
         card.classList.add("news-card");
 
-        // Populate the card
         card.innerHTML = `
-        <img src="${article.image}" alt="${article.title}" class="news-image">
-        <h3><a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a></h3>
-        <p><strong>By: </strong>${article.author}</p>
-        <p>${article.description || "No description available."}</p>
+            <img src="${article.image}" alt="${article.title}" class="news-image">
+            <h3><a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a></h3>
+            <p><strong>By: </strong>${article.author}</p>
+            <p>${article.description || "No description available."}</p>
         `;
 
         newsContainer.appendChild(card);
