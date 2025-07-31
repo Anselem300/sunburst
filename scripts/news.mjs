@@ -39,39 +39,49 @@ async function getNews() {
     const cachedTime = localStorage.getItem("newsCacheTime");
     const display = document.getElementById("status");
 
-    // Always render cached news if available (never leave page empty)
+    // Always render cached news if available
     if (cached) {
         renderNews(JSON.parse(cached));
         display.textContent = "Showing Available News (updates every 21 hours)";
     }
 
-    // Fetch new news only if cache is missing or expired
+    // Fetch fresh news if cache is missing or expired
     if (!cachedTime || (Date.now() - cachedTime > CACHE_EXPIRY)) {
-      try {
-          const apiKey = "ce88a991592abdb206f29987c8196719";
-          const proxyUrl = "https://api.allorigins.win/get?url=";
-          const targetUrl = encodeURIComponent(`https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=100`);
-          const url = proxyUrl + targetUrl;
+        try {
+            const apiKey = "ce88a991592abdb206f29987c8196719";
+            const proxyUrl = "https://api.allorigins.win/get?url=";
+            const targetUrl = encodeURIComponent(
+                `https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=50`
+            );
+            const url = proxyUrl + targetUrl;
 
-          const response = await fetch(url);
-          if (!response.ok) {
-              throw new Error(`Error: ${response.status} ${response.statusText}`);
-           }
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} ${response.statusText}`);
+            }
 
-          const proxyData = await response.json();
-          const data = JSON.parse(proxyData.contents); // ✅ unwrap Mediastack data
-          console.log("Fetched fresh news:", data);
+            const proxyData = await response.json();
+            const data = JSON.parse(proxyData.contents);
 
-          // Save data + timestamp
-          localStorage.setItem("newsCache", JSON.stringify(data));
-          localStorage.setItem("newsCacheTime", Date.now());
+            // ✅ Stop if API sends an error
+            if (data.error) {
+                console.error("Mediastack API Error:", data.error.message);
+                display.textContent = "⚠️ Unable to load fresh news. Showing cached news instead.";
+                return;
+            }
 
-          renderNews(data);
-          display.textContent = "Showing fresh news (updated just now)";
+            console.log("Fetched fresh news:", data);
+
+            // Save fresh data + timestamp
+            localStorage.setItem("newsCache", JSON.stringify(data));
+            localStorage.setItem("newsCacheTime", Date.now());
+
+            renderNews(data);
+            display.textContent = "Showing fresh news (updated just now)";
         } catch (error) {
-           console.error("Failed to fetch news:", error);
-           if (!cached) {
-              newsContainer.innerHTML = `<p>⚠️ Unable to load news. Please check back later.</p>`;
+            console.error("Failed to fetch news:", error);
+            if (!cached) {
+                newsContainer.innerHTML = `<p>⚠️ Unable to load news. Please check back later.</p>`;
             }
         }
     }
