@@ -234,4 +234,12 @@ footer {
 }
 
 
-/* Ending for now */
+.contact figure img {
+    border-radius: 1rem 1rem;
+    box-shadow: 0 0 4px;
+}
+
+.contact figure p {
+    margin: .3rem;
+    color: var(--color1);
+}
