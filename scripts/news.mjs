@@ -73,8 +73,8 @@ async function getNews() {
             console.log("Fetched fresh news:", data);
 
             // Save fresh data + timestamp
-            localStorage.setItem("newsCache_mediastack", JSON.stringify(data));
-            localStorage.setItem("newsCacheTime_mediastack", Date.now());
+            localStorage.setItem("newsCache", JSON.stringify(data));
+            localStorage.setItem("newsCacheTime", Date.now());
 
             renderNews(data);
             display.textContent = "Showing fresh news (updated just now)";
