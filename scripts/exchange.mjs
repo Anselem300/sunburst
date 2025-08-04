@@ -186,15 +186,20 @@ async function getNews() {
     // ✅ Fetch fresh news if cache is missing or expired
     if (!cachedTime || (Date.now() - cachedTime > CACHE_EXPIRY)) {
         try {
-            const apiKey = "pub_8d9dde806129436faea709570917643d"; // Replace with your key
-            const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=forex&language=en`;
+            const apiKey = "pub_8d9dde806129436faea709570917643d"; 
+            const proxyUrl = "https://api.allorigins.win/get?url=";
+            const targetUrl = encodeURIComponent(
+              `https://newsdata.io/api/1/news?apikey=${apiKey}&q=forex&language=en`
+            );
+            const url = proxyUrl + targetUrl;
 
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`Error: ${response.status} ${response.statusText}`);
             }
 
-            const data = await response.json();
+            const proxyData = await response.json();
+            const data = JSON.parse(proxyData.contents);
 
             if (!data.results) {
                 display.textContent = "⚠️ Unable to load fresh news. Showing cached news.";
@@ -204,8 +209,8 @@ async function getNews() {
             console.log("Fetched fresh news:", data);
 
             // Save fresh data + timestamp
-            localStorage.setItem("newsCache", JSON.stringify(data));
-            localStorage.setItem("newsCacheTime", Date.now());
+            localStorage.setItem("newsCache_newsdata", JSON.stringify(data));
+            localStorage.setItem("newsCacheTime_newsdata", Date.now());
 
             renderNews(data);
             display.textContent = "Showing fresh news (updated just now)";

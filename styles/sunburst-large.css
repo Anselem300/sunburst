@@ -78,8 +78,8 @@
         margin: 1rem;
     }
 
-    .segment {
-        display: grid;
-        grid-template-columns: .5fr 1fr;
+    details {
+        width: 600px;
+        margin: .7rem auto;
     }
 }

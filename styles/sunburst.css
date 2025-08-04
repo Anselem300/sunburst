@@ -202,6 +202,7 @@ footer {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeSlideUp 1s ease-out forwards;
+    margin: .5rem;
 }
 
 @keyframes fadeSlideUp {
@@ -361,5 +362,5 @@ details {
 .finance h3 {
     text-align: center;
     margin-top: 1rem;
-    margin-bottom: .9rem;
+    margin-bottom: 1rem;
 }
