@@ -35,8 +35,8 @@ function renderNews(data) {
 
 async function getNews() {
     const CACHE_EXPIRY = 1000 * 60 * 60 * 21; // 21hrs
-    const cached = localStorage.getItem("newsCache");
-    const cachedTime = localStorage.getItem("newsCacheTime");
+    const cached = localStorage.getItem("newsCache_mediastack");
+    const cachedTime = localStorage.getItem("newsCacheTime_mediastack");
     const display = document.getElementById("status");
 
     // Always render cached news if available
@@ -49,32 +49,29 @@ async function getNews() {
     if (!cachedTime || (Date.now() - cachedTime > CACHE_EXPIRY)) {
         try {
             const apiKey = "ce88a991592abdb206f29987c8196719";
-            const proxyUrl = "https://api.allorigins.win/get?url=";
             const targetUrl = encodeURIComponent(
                 `http://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=50`
             );
-            const url = proxyUrl + targetUrl;
+            const url = `https://api.allorigins.win/raw?url=${targetUrl}`;
 
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`Error: ${response.status} ${response.statusText}`);
             }
 
-            const proxyData = await response.json();
-            const data = JSON.parse(proxyData.contents);
+            const data = await response.json();
 
             // ✅ Stop if API sends an error
-            if (data.error) {
-                console.error("Mediastack API Error:", data.error.message);
-                display.textContent = "⚠️ Unable to load fresh news. Showing Available news instead.";
+            if (!data.data) {
+                display.textContent = "⚠️ Unable to load fresh news. Showing Available news.";
                 return;
             }
 
             console.log("Fetched fresh news:", data);
 
             // Save fresh data + timestamp
-            localStorage.setItem("newsCache", JSON.stringify(data));
-            localStorage.setItem("newsCacheTime", Date.now());
+            localStorage.setItem("newsCache_mediastack", JSON.stringify(data));
+            localStorage.setItem("newsCacheTime_mediastack", Date.now());
 
             renderNews(data);
             display.textContent = "Showing fresh news (updated just now)";
@@ -86,5 +83,6 @@ async function getNews() {
         }
     }
 }
+
 
 getNews();
