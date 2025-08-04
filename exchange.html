@@ -28,6 +28,8 @@
     <!-- 100% privacy-first analytics -->
     <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
+    <!-- For Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header id="main-header">
@@ -35,7 +37,50 @@
     </header>
     <main>
         <h1 class="title">Exchange</h1>
-        <p id="fix">Uh oh! We are currently working on this page. Give it a try again sometime soon!</p>
+        <div class="about-us">
+          <img src="images/exchange_currency.jpg" alt="Convert Your Currency">
+          <ul>
+            <li>Convert Smarter. Travel Lighter.</li>
+            <li>Real-Time Rates, Anytime.</li>
+            <li>Instant Conversion. Global Confidence.</li>
+            <li>From Dollars to Euros — We've Got You Covered.</li>
+          </ul>
+        </div>
+        <p class="ahead">Stay ahead with real-time currency conversion at your fingertips. Whether you’re planning a trip, 
+          managing international business, or keeping track of global markets, our fast and reliable converter 
+          makes it simple to get the latest exchange rates and make smarter financial decisions.</p>
+        <div class="segment">
+          <details>
+		         <summary>Supported Currencies</summary>
+		         <ul id="currencies"></ul>
+	        </details>
+
+          <form id="exchange-form">
+             <label for="currency">From</label>
+             <select id="currency" name="currency" required>
+               <option value="">-- Select Currency --</option>
+             </select>
+
+             <label for="to-currency">To</label>
+             <select id="to-currency" name="to-currency" required>
+               <option value="">-- Select Currency --</option>
+             </select>
+
+             <label for="amount">Amount</label>
+             <input type="number" id="amount" name="amount" required>
+
+             <button type="submit">Convert</button>
+             <div id="result">No Currency Converted</div>
+          </form>
+        </div>
+        <canvas id="rateChart" width="400" height="200"></canvas>
+        <section class="finance">
+          <h3>Latest Financial News</h3>
+          <p id="status"></p>
+          <div id="news-container">
+           <p>Loading latest news...</p>
+          </div>
+        </section>
     </main>
     <footer id="main-footer">
 

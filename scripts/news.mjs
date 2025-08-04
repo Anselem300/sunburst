@@ -66,7 +66,7 @@ async function getNews() {
             // ✅ Stop if API sends an error
             if (data.error) {
                 console.error("Mediastack API Error:", data.error.message);
-                display.textContent = "⚠️ Unable to load fresh news. Showing cached news instead.";
+                display.textContent = "⚠️ Unable to load fresh news. Showing Available news instead.";
                 return;
             }
 

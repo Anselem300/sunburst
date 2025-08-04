@@ -69,4 +69,17 @@
     justify-content: flex-end; /* push content to bottom */
     padding: 1rem; /* optional: for spacing inside */
     }
+
+    .about-us ul{
+        top: 20%;
+    }
+
+    .about-us ul li {
+        margin: 1rem;
+    }
+
+    .segment {
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+    }
 }
