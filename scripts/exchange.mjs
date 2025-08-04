@@ -123,7 +123,7 @@ function renderCurrency(data){
 }
 
   // ✅ Load supported currencies dynamically
-async function supportedCurrencies(params) {
+async function supportedCurrencies() {
    const response = await fetch("https://api.frankfurter.dev/v1/currencies");
    if(!response.ok){
        throw new Error("Error:", response.status)

@@ -51,7 +51,7 @@ async function getNews() {
             const apiKey = "ce88a991592abdb206f29987c8196719";
             const proxyUrl = "https://api.allorigins.win/get?url=";
             const targetUrl = encodeURIComponent(
-                `https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=50`
+                `http://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=50`
             );
             const url = proxyUrl + targetUrl;
 
