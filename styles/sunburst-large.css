@@ -27,7 +27,7 @@
         gap: 1.5rem;
     }
 
-    #news-container {
+    #news-container, #forexnews-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
@@ -82,4 +82,11 @@
         width: 600px;
         margin: .7rem auto;
     }
+
+    .chart{
+        width: 400px;
+        height: 300px;
+        margin: .5rem auto;
+    }
+
 }

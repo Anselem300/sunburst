@@ -113,7 +113,7 @@ footer {
     margin-bottom: .6rem;
 }
 
-#news-container {
+#news-container, #forexnews-container {
     padding: .5rem;
     margin-top: 1rem;
     box-shadow: 0 0 10px;

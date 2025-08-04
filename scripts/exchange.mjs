@@ -135,9 +135,9 @@ async function supportedCurrencies(params) {
 
 supportedCurrencies();
 
-const newsContainer = document.getElementById("news-container");
+const newsContainer = document.getElementById("forexnews-container");
 
-function renderNews(data) {
+function renderForexNews(data) {
     newsContainer.innerHTML = ""; // clear before adding new
 
     // ✅ Check if results exist
@@ -171,16 +171,16 @@ function renderNews(data) {
     });
 }
 
-async function getNews() {
-    const CACHE_EXPIRY = 1000 * 60 * 60 * 21; // 21hrs
-    const cached = localStorage.getItem("newsCache");
-    const cachedTime = localStorage.getItem("newsCacheTime");
+async function getForexNews() {
+    const CACHE_EXPIRY = 1000 * 60 * 60 * 24; // 24hrs
+    const cached = localStorage.getItem("newsCache_newsdata");
+    const cachedTime = localStorage.getItem("newsCacheTime_newsdata");
     const display = document.getElementById("status");
 
     // ✅ Show cached news if available
     if (cached) {
-        renderNews(JSON.parse(cached));
-        display.textContent = "Showing cached news (updates every 21 hours)";
+        renderForexNews(JSON.parse(cached));
+        display.textContent = "Showing Avaialble news (updates every 24 hours)";
     }
 
     // ✅ Fetch fresh news if cache is missing or expired
@@ -212,7 +212,7 @@ async function getNews() {
             localStorage.setItem("newsCache_newsdata", JSON.stringify(data));
             localStorage.setItem("newsCacheTime_newsdata", Date.now());
 
-            renderNews(data);
+            renderForexNews(data);
             display.textContent = "Showing fresh news (updated just now)";
         } catch (error) {
             console.error("Failed to fetch news:", error);
@@ -223,4 +223,4 @@ async function getNews() {
     }
 }
 
-getNews();
+getForexNews();
