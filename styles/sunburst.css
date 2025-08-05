@@ -364,3 +364,56 @@ details {
     margin-top: 1rem;
     margin-bottom: .5rem;
 }
+
+article {
+    text-align: center;
+    padding: .5rem;
+    padding-top: 0;
+    & h4 {
+        margin-bottom: .4rem;
+    }
+    & p {
+        margin-bottom: .5rem;
+    }
+    & img {
+        width: 100%;
+    }
+}
+
+.latest, .exchange {
+    text-align: center;
+    padding: .4rem;
+    & h4 {
+        margin-bottom: .5rem;
+    }
+    p {
+        margin-bottom: .5rem;
+    }
+
+    ul {
+        list-style: none;
+        text-align: left;
+        margin-bottom: .5rem;
+        li {
+            margin: .5rem;
+            em {
+            color: green;
+            margin-right: .4rem;
+            font-weight: 600;
+            }
+        }
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.choose {
+    padding: 1rem;
+    h4 {
+        margin-bottom: .5rem;
+    }
+    ul li {
+        margin: .5rem;
+    }
+}

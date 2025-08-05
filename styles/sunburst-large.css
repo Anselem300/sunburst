@@ -89,4 +89,28 @@
         margin: .5rem auto;
     }
 
+    .ahead {
+        width: 900px;
+        margin: 0 auto;
+    }
+
+    article {
+        width: 900px;
+        margin: 1rem auto;
+    }
+
+    .latest, .exchange{
+        width: 900px;
+        margin: 1rem auto;
+        ul li {
+            margin: 1rem;
+        }
+    }
+
+    .choose {
+        width: 900px;
+        margin: .4rem auto;
+        margin-top: 0;
+    }
+
 }
