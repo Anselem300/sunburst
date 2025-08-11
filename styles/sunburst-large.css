@@ -113,4 +113,17 @@
         margin-top: 0;
     }
 
+    .browse-news a, .convert a {
+        padding: 1rem;
+        font-weight: 700;
+    }
+
+    .desktop {
+        display: block;
+        position: relative;
+    }
+
+    .mobile {
+        display: none;
+    }
 }
