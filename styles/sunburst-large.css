@@ -126,4 +126,9 @@
     .mobile {
         display: none;
     }
+    
+    .share {
+      padding: .2rem;
+      padding-right: 6rem;
+    }
 }

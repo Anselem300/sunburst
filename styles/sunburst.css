@@ -478,3 +478,28 @@ article {
 }
 
 /* Already Completed */
+
+.share {
+    padding: .2rem;
+    padding-right: .5rem;
+    display: flex;
+    gap: .4rem;
+    
+    & a img {
+        width: 25px;
+        height: 20px;
+        padding-top: 0;
+    }
+    & p {
+        font-size: .8rem;
+        margin-top: .2rem;
+        & strong {
+            font-weight: 500;
+        }
+    }
+}
+
+.begin{
+    display: flex;
+    justify-content: space-between;
+}
