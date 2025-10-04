@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talky - Home</title>
+  <link rel="stylesheet" href="styles/home.css">
+   <link rel="stylesheet" href="styles/mobile.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <!-- For Google Adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4188387479952764"
+     crossorigin="anonymous"></script>
+  <!-- 100% privacy-first analytics -->
+  <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h1 class="logo">Talky</h1>
+    </div>
+    <div class="nav-center">
+      <a href="home.html" class="active">🏠 Home</a>
+      <a href="notifications.html">🔔 Notifications</a>
+    </div>
+    <div class="nav-right">
+      <span id="welcomeUser"></span>
+      <button onclick="logout()" class="logout-btn">🚪 Logout</button>
+    </div>
+  </nav>
+
+  <!-- CREATE POST -->
+  <div class="create-post">
+    <textarea id="postContent" placeholder="What's on your mind?" required></textarea>
+    <button id="postBtn">Post</button>
+  </div>
+
+  <!-- POSTS FEED -->
+  <div id="postsContainer" class="feed"></div>
+
+  <!-- SHARE MODAL -->
+  <div id="overlay" onclick="closeShareModal()"></div>
+  <div id="shareModal">
+    <h3>Share Post</h3>
+    <input type="text" id="shareLink" readonly style="width: 100%; margin-bottom: 10px;">
+    <button onclick="copyLink()">📋 Copy Link</button>
+    <button id="nativeShareBtn">📱 Share via Device</button>
+    <a id="whatsappBtn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a id="twitterBtn" target="_blank" rel="noopener noreferrer">Twitter</a>
+    <a id="facebookBtn" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <button onclick="closeShareModal()">Close</button>
+  </div>
+
+ <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-section">
+      <h3>Talky</h3>
+      <p>Connect, share, and stay updated.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="notifications.html">Notifications</a></li>
+        <li><a href="sunburst.html">Sunburst</a></li>
+        <li><a href="exchange.html">Convert Currency</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:anselemsamuel97@gmail.com">anselemsamuel97@gmail.com</a></p>
+      <p>Phone: <a href="tel:+2349069915069">+2349069915069</a></p>
+      <div class="social-links">
+        <a href="#">🐦</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 TalkZone. All rights reserved.</p>
+  </div>
+</footer>
+
+  <script src="scripts/home.js"></script>
+</body>
+</html>

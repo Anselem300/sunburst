@@ -1,0 +1,46 @@
+/* ===== MOBILE DEVICES ===== */
+@media (max-width: 600px) {
+  /* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1877f2;
+  color: white;
+  padding: 10px 20px;
+}
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  margin-right: .5rem;
+}
+
+#welcomeUser{
+    font-size: .9rem;
+    margin-left: 1.5rem;
+}
+.nav-center a {
+  color: white;
+  font-size: .9rem;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-center a.active {
+  text-decoration: underline;
+}
+.logout-btn {
+  background: #fff;
+  color: #1877f2;
+  border: none;
+  padding: 1px 1px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .8rem;
+  margin-left: 1.5rem;
+  margin-top: .2rem;
+}
+.logout-btn:hover {
+  background: #eee;
+}
+}

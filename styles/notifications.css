@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1877f2;
+  color: white;
+  padding: 10px 20px;
+}
+.nav-center a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-center a.active {
+  text-decoration: underline;
+}
+.logout-btn {
+  background: #fff;
+  color: #1877f2;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background: #eee;
+}
+
+.notifications {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.notification {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.notification:last-child {
+  border-bottom: none;
+}
+
+/* FOOTER */
+.site-footer {
+  background: #1877f2;
+  color: white;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: white;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Keep all sections in one row */
+}
+
+.footer-section {
+  flex: 1 1 auto;
+  margin: 0 10px;
+}
+
+.footer-section h3, .footer-section h4 {
+  margin-bottom: 5px;
+  font-size: 0.9rem; /* smaller headers */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 3px;
+  font-size: 0.8rem;
+}
+
+.social-links a {
+  margin-right: 5px;
+  font-size: 1rem;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 5px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+
+  .footer-section h3, .footer-section h4 {
+    font-size: 0.8rem;
+  }
+
+  .footer-section ul li {
+    font-size: 0.7rem;
+  }
+
+  .social-links a {
+    font-size: 0.85rem;
+  }
+}

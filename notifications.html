@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalkZone - Notifications</title>
+  <link rel="stylesheet" href="styles/notifications.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <h1 class="logo">TalkZone</h1>
+    </div>
+    <div class="nav-center">
+      <a href="home.html">🏠 Home</a>
+      <a href="notifications.html" class="active">🔔 Notifications</a>
+    </div>
+    <div class="nav-right">
+      <span id="welcomeUser"></span>
+      <button onclick="logout()" class="logout-btn">🚪 Logout</button>
+    </div>
+  </nav>
+
+  <!-- NOTIFICATIONS LIST -->
+  <div class="notifications" id="notificationsContainer"></div>
+
+  <!-- Socket.IO -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"
+          integrity="sha384-qfXn3Qv/bYtT9lxy5UvQyGLBcx9fXoKqixs7yKhBmc4k2n+6NiJKc1BfXSAuEslg"
+          crossorigin="anonymous"></script>
+
+  <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-section">
+      <h3>Talky</h3>
+      <p>Connect, share, and stay updated.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="notifications.html">Notifications</a></li>
+        <li><a href="sunburst.html">Sunburst</a></li>
+        <li><a href="exchange.html">Convert Currency</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:anselemsamuel97@gmail.com">anselemsamuel97@gmail.com</a></p>
+      <p>Phone: <a href="tel:+2349069915069">+2349069915069</a></p>
+      <div class="social-links">
+        <a href="#">🐦</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 TalkZone. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <script src="scripts/notifications.js"></script>
+</body>
+</html>

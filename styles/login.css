@@ -1,0 +1,140 @@
+/* GENERAL BODY */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box; /* ensures padding included in width */
+}
+
+/* CONTAINER */
+.auth-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* TITLE */
+.auth-container h1 {
+  color: #1877f2;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* CARD */
+.auth-box {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* FORM */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* INPUT GROUP */
+.input-group {
+  position: relative;
+}
+
+/* INPUT */
+.auth-form input {
+  width: 100%;
+  box-sizing: border-box; /* fix overstretching */
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* PASSWORD CONTAINER */
+.password-container {
+  position: relative; /* keep eye absolute inside */
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px; /* space for eye toggle */
+  box-sizing: border-box;
+}
+
+/* PASSWORD TOGGLE EYE */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+/* ERROR OUTSIDE */
+.error-outside {
+  color: #e53935;
+  font-size: 0.85rem;
+  text-align: left;
+  margin-bottom: 8px;
+  min-height: 18px;
+}
+
+/* BUTTON */
+.auth-form button {
+  padding: 12px 15px;
+  background: #1877f2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  background: #145dbf;
+}
+
+/* TOGGLE FORM TEXT */
+.auth-form p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.toggle-form {
+  color: #1877f2;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* HIDDEN CLASS */
+.hidden {
+  display: none;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 480px) {
+  .auth-box {
+    padding: 20px;
+  }
+
+  .auth-form input, .auth-form button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .auth-container h1 {
+    font-size: 1.8rem;
+  }
+}
+
+
